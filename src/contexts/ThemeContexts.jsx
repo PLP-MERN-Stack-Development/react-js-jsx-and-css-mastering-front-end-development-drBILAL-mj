@@ -9,10 +9,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
  */
 
 // const ThemeContext = createContext();
-export const ThemeContext = createContext({
-  theme: 'light',
-  setTheme: () => {}
-});
+export const ThemeContext = createContext()
 
 export function ThemeProvider({ children }) {
   // try to restore theme from localStorage for persistence
