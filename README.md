@@ -1,18 +1,95 @@
-# React + Vite
+# React Task Manager with Theme Toggle
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern task management application built with React and Vite and persistent storage.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Check out the live application: [Task Manager App](https://myapp-v1.netlify.app/)
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- Task Creation, Update, and Deletion
+- Task Filtering (All, Active, Completed)
+- Dark/Light Theme Toggle
+- Persistent Storage using LocalStorage
+- Responsive Design
+- Accessible UI Components
 
-Note: This will impact Vite dev & build performances.
+## 🛠️ Built With
 
-## Expanding the ESLint configuration
+- React 18
+- Vite
+- Tailwind CSS
+- React Context API
+- LocalStorage for data persistence
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (version 16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/drBILAL-mj/react-js-jsx-and-css-mastering-front-end-development-drBILAL-mj.git
+cd react-js-jsx-and-css-mastering-front-end-development-drBILAL-mj
+```
+
+2. Install dependencies
+```bash
+npm install
+# or
+yarn
+```
+
+3. Start the development server
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The app will be available at `http://localhost:5173`
+
+## 📁 Project Structure
+
+```
+src/
+├── components/        # Reusable UI components
+├── contexts/         # React Context providers
+├── hooks/           # Custom React hooks
+├── pages/           # Page components
+└── main.jsx         # Application entry point
+```
+
+## 🎨 Features in Detail
+
+### Task Management
+- Add new tasks
+- Mark tasks as complete/incomplete
+- Delete tasks
+- Filter tasks by status
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 👤 Author
+
+**Dr BILAL**
+- GitHub: [@drBILAL-mj](https://github.com/drBILAL-mj)
+
+## 🔗 Repository
+
+[GitHub Repository](https://github.com/drBILAL-mj/react-js-jsx-and-css-mastering-front-end-development-drBILAL-mj)
