@@ -1,4 +1,4 @@
-# React Task Manager with Theme Toggle
+# React Task Manager Application
 
 A modern task management application built with React and Vite and persistent storage.
 
@@ -10,7 +10,6 @@ Check out the live application: [Task Manager App](https://myapp-v1.netlify.app/
 
 - Task Creation, Update, and Deletion
 - Task Filtering (All, Active, Completed)
-- Dark/Light Theme Toggle
 - Persistent Storage using LocalStorage
 - Responsive Design
 - Accessible UI Components
