@@ -1,72 +1,126 @@
-import { useState } from 'react';
-import './App.css';
+// src/App.jsx
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Layout from "./layout/Layout";
+import Home from "./pages/Home";
+import TasksPage from "./pages/TaskPage";
+// import About from "./pages/About";
+import { ThemeProvider, useTheme } from "./contexts/ThemeContexts";
+import ApiExplorer from "./api/ApiList";
 
-// Import your components here
-// import Button from './components/Button';
-// import Navbar from './components/Navbar';
-// import Footer from './components/Footer';
-// import TaskManager from './components/TaskManager';
-
-function App() {
-  const [count, setCount] = useState(0);
-
+// Small theme toggle UI (used inside App)
+function ThemeToggle() {
+  const { theme, toggleTheme } = useTheme();
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-      {/* Navbar component will go here */}
-      <header className="bg-white dark:bg-gray-800 shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold">PLP Task Manager</h1>
-        </div>
-      </header>
-
-      <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg p-6">
-          <div className="flex flex-col items-center justify-center">
-            <p className="text-lg mb-4">
-              Edit <code className="font-mono bg-gray-200 dark:bg-gray-700 p-1 rounded">src/App.jsx</code> and save to test HMR
-            </p>
-            
-            <div className="flex items-center gap-4 my-4">
-              <button
-                onClick={() => setCount((count) => count - 1)}
-                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
-              >
-                -
-              </button>
-              <span className="text-xl font-bold">{count}</span>
-              <button
-                onClick={() => setCount((count) => count + 1)}
-                className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
-              >
-                +
-              </button>
-            </div>
-
-            <p className="text-gray-500 dark:text-gray-400 mt-4">
-              Implement your TaskManager component here
-            </p>
-          </div>
-        </div>
-        
-        {/* API data display will go here */}
-        <div className="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg p-6">
-          <h2 className="text-2xl font-bold mb-4">API Data</h2>
-          <p className="text-gray-500 dark:text-gray-400">
-            Fetch and display data from an API here
-          </p>
-        </div>
-      </main>
-
-      {/* Footer component will go here */}
-      <footer className="bg-white dark:bg-gray-800 shadow mt-auto">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-gray-500 dark:text-gray-400">
-            © {new Date().getFullYear()} PLP Task Manager. All rights reserved.
-          </p>
-        </div>
-      </footer>
-    </div>
+    <button onClick={toggleTheme} className="text-sm px-3 py-1 border rounded">
+      Theme: {theme}
+    </button>
   );
 }
 
-export default App; 
+export default function App() {
+  return (
+    <ThemeProvider>
+      <Router>
+        <Layout>
+          {/* You could put global controls like theme toggle here */}
+          <div className="mb-4 flex items-center justify-between">
+            {/* <div>
+              <Link to="/" className="mr-4">Home</Link>
+              <Link to="/tasks" className="mr-4">Tasks</Link>
+              <Link to="/about">About</Link>
+            </div> */}
+            <ThemeToggle />
+          </div>
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/tasks" element={<TasksPage />} />
+            <Route path="/explorer" element={<ApiExplorer />} />
+            {/* <Route path="/about" element={<About />} /> */}
+          </Routes>
+        </Layout>
+      </Router>
+    </ThemeProvider>
+  );
+}
+
+
+
+// // src/App.jsx
+// import React from "react";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import Home from "./pages/Home";
+// // import About from "./pages/About.jsx";
+// import Layout from "./layout/Layout";
+// import TaskManager from "./pages/TaskPage";
+// import { ThemeProvider, useTheme } from './contexts/ThemeContexts'
+
+// // Small theme toggle UI (used inside App)
+// function ThemeToggle() {
+//   const { theme, toggleTheme } = useTheme();
+//   return (
+//     <button onClick={toggleTheme} className="text-sm px-3 py-1 border rounded">
+//       Theme: {theme}
+//     </button>
+//   );
+// }
+
+
+// export default function App() {
+//   return (
+//     <ThemeProvider>
+//       <Router>
+//         {/* Layout wraps all pages with Navbar + Footer */}
+//         <Layout>
+//           <Routes>
+//             <Route path="/" element={<Home />} />
+//              <Route path="/tasks" element={<TaskManager />} />
+//             {/* <Route path="/about" element={<About />} /> */}
+//             {/* Add more routes as needed */}
+//           </Routes>
+//         </Layout>
+//       </Router>
+//        <ThemeToggle />
+//     </ThemeProvider>
+//   );
+// }
+
+
+
+
+// import { useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
+// import './App.css'
+
+// function App() {
+//   const [count, setCount] = useState(0)
+
+//   return (
+//     <>
+//       <div>
+//         <a href="https://vite.dev" target="_blank">
+//           <img src={viteLogo} className="logo" alt="Vite logo" />
+//         </a>
+//         <a href="https://react.dev" target="_blank">
+//           <img src={reactLogo} className="logo react" alt="React logo" />
+//         </a>
+//       </div>
+//       <h1>Vite + React</h1>
+//       <div className="card">
+//         <button onClick={() => setCount((count) => count + 1)}>
+//           count is {count}
+//         </button>
+//         <p>
+//           Edit <code>src/App.jsx</code> and save to test HMR
+//         </p>
+//       </div>
+//       <p className="read-the-docs">
+//         Click on the Vite and React logos to learn more
+//       </p>
+//     </>
+//   )
+// }
+
+// export default App
