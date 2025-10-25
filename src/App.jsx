@@ -4,44 +4,21 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import TasksPage from "./pages/TaskPage";
-// import About from "./pages/About";
-import { ThemeProvider, useTheme } from "./contexts/ThemeContexts";
+import About from "./pages/About";
 import ApiExplorer from "./api/ApiList";
-
-// Small theme toggle UI (used inside App)
-function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme();
-  return (
-    <button onClick={toggleTheme} className="text-sm px-3 py-1 border rounded">
-      Theme: {theme}
-    </button>
-  );
-}
 
 export default function App() {
   return (
-    <ThemeProvider>
       <Router>
         <Layout>
-          {/* You could put global controls like theme toggle here */}
-          <div className="mb-4 flex items-center justify-between">
-            {/* <div>
-              <Link to="/" className="mr-4">Home</Link>
-              <Link to="/tasks" className="mr-4">Tasks</Link>
-              <Link to="/about">About</Link>
-            </div> */}
-            <ThemeToggle />
-          </div>
-
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/tasks" element={<TasksPage />} />
             <Route path="/explorer" element={<ApiExplorer />} />
-            {/* <Route path="/about" element={<About />} /> */}
+            <Route path="/about" element={<About />} />
           </Routes>
         </Layout>
       </Router>
-    </ThemeProvider>
   );
 }
 
